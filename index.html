@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Study Planner</h1>
+      <p>Organize your studies with an intelligent schedule</p>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="add" class="tab active">Add Subjects</button>
+    <button data-tab="manage" class="tab">Manage Subjects</button>
+    <button data-tab="generate" class="tab">Generate Schedule</button>
+    <button data-tab="view" class="tab">View Schedule</button>
+  </nav>
+
+  <main class="container">
+    <!-- Add Subject -->
+    <section id="add" class="panel active">
+      <h2>Add a New Subject</h2>
+      <form id="addForm" class="form">
+        <label>Subject name
+          <input id="subjectName" placeholder="e.g., Mathematics, History" required />
+        </label>
+
+        <label>Difficulty level
+          <select id="difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+
+        <label>Weekly study hours
+          <input id="weeklyHours" type="number" min="1" max="40" placeholder="e.g., 5" required />
+        </label>
+
+        <div><button type="submit" class="btn">Add Subject</button></div>
+      </form>
+      <div id="addMsg" class="message"></div>
+    </section>
+
+    <!-- Manage Subjects -->
+    <section id="manage" class="panel">
+      <h2>Manage Subjects</h2>
+      <div id="subjectsList" class="list"></div>
+    </section>
+
+    <!-- Generate Schedule -->
+    <section id="generate" class="panel">
+      <h2>Generate Schedule</h2>
+      <p>Click generate to create a weekly schedule from your subjects. You can regenerate anytime.</p>
+      <div class="controls">
+        <label>Max hours per day
+          <input id="maxPerDay" type="number" min="1" max="24" value="4"/>
+        </label>
+        <button id="generateBtn" class="btn">Generate Schedule</button>
+      </div>
+      <div id="generateMsg" class="message"></div>
+    </section>
+
+    <!-- View Schedule -->
+    <section id="view" class="panel">
+      <h2>Weekly Schedule</h2>
+      <div id="scheduleView" class="schedule"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Persisted with the browser Cache Storage API · Demo</small>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
